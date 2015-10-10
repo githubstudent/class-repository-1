@@ -22,8 +22,6 @@ int main()
         cout << "Welcome to the High Travel Agency Program" << endl;
         cout << "Which vacation would you like to go on?" << endl;
         userChoice = menu();
-        cout << "Enter choice" << endl;
-        cin >> userChoice;
         
     while(loopController == 'Y')
     {
