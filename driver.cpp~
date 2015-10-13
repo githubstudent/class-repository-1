@@ -1,0 +1,144 @@
+//Lesley Amezcua
+//Athena Raya
+//Louis Romero
+//Dario Molina
+
+#include <iostream>
+#include <cstring>
+#include <cctype> // toupper()
+#include <cassert>
+
+using namespace std;
+
+char menu( );
+double climbing();
+double scuba();
+double skyDive();
+double spelunk();
+
+int main()
+{
+        char userChoice, loopController = 'Y';
+        cout << "Welcome to the High Travel Agency Program" << endl;
+        cout << "Which vacation would you like to go on?" << endl;
+        userChoice = menu();
+        
+    while(loopController == 'Y')
+    {
+          switch(userChoice)
+          {
+              case '1':
+                  cout << "Price of trip will be $" << climbing() << endl;
+                  cout << endl;
+                  break;
+              case '2':
+                  cout << "Price of trip will be $" << scuba();
+                  cout << endl;
+                  break;
+              case '3':
+                  cout << "Price of trip will be $" << skyDive();
+                  cout << endl;
+                  break;
+              case '4':
+                  cout << "Price of trip will be $" << spelunk();
+                  cout << endl;
+                  break;
+              default:
+                  cout << "Invalid Input" << endl;
+                  cout << endl;
+        }
+        
+    cout << "Would you like to check the price of another trip?" << endl;
+    cout << "Press Y to continue or any key to terminate" << endl;
+    cin >>loopController;
+    loopController = toupper(loopController);
+    }
+    cout << "Thank you for using our program!" << endl;
+    return 0;
+}
+char menu()
+{
+
+}
+double climbing()
+{
+    const double baseChargePerPerson = 350.00;
+    const double climbingInstructionCost = 100.00;
+    const double equipmentRentalCharge = 40.00;
+    const double percentDiscount = 0.10;
+    const double numberOfDays = 3.0;
+    double needInstruction, needEquipment, numPeople;
+    double baseChargePrice, instructionCharge, equipmentRentalPrice, totalPrice, daysEquipmentNeeded;
+    
+    cout << "How many people are going climbing?" << endl;
+    cin >> numPeople;
+    
+    if (numPeople < 0)
+    {
+        return 0.00;
+    }
+    
+    else
+    {
+        if( numPeople < 5)//If less than 5 people no discount for that group
+        {
+            baseChargePrice = numPeople * baseChargePerPerson;//Price of base charge for group smaller than 5 people
+        }
+        else//Else they get a 10 % discount
+        {
+            baseChargePrice = numPeople * baseChargePerPerson;
+            baseChargePrice = baseChargePrice - (baseChargePrice * percentDiscount);//Price of base charge for group greater than 5 people
+        }
+        
+        cout << "How many people need instruction: "  << endl;
+        cin >> needInstruction;
+        cout << "How many people need to rent equipment: " << endl;
+        cin >> needEquipment;
+        
+        instructionCharge = climbingInstructionCost * needInstruction;
+        equipmentRentalPrice = needEquipment * equipmentRentalCharge * numberOfDays;
+        
+        totalPrice = baseChargePrice + instructionCharge + equipmentRentalPrice;
+        return totalPrice;
+    }
+ 
+}
+double scuba()
+{
+
+
+}
+double skyDive()
+{
+
+
+}
+double spelunk()
+{
+    const double baseChargePerPerson = 700.00;
+    const double equipRental = 40.00;
+    const double discount = 0.10;
+    const double daysSpent = 8.0;
+    
+    double needEquip, numOfPeople;
+    double baseCharge, equipPrice, totalCost;
+    
+    cout << " How many people are in your party ? " << endl;
+    cin >> numOfPeople;
+    if( numOfPeople < 5 )
+    {
+        baseCharge = (numOfPeople * baseChargePerPerson);
+    }
+    else
+    {
+        baseCharge = (numOfPeople * baseChargePerPerson);
+        baseCharge = baseCharge -(baseCharge * discount);
+    }
+    
+    cout << " How many people will be needing rental equiment ? " << endl;
+    cin >> needEquip;
+    needEquip = (needEquip * daysSpent) * equipRental;
+    
+    totalCost = baseCharge + needEquip;
+    return totalCost;
+}
