@@ -115,6 +115,30 @@ double skyDive()
 }
 double spelunk()
 {
-
-
+    const double baseChargePerPerson = 700.00;
+    const double equipRental = 40.00;
+    const double discount = 0.10;
+    const double daysSpent = 8.0;
+    
+    double needEquip, numOfPeople;
+    double baseCharge, equipPrice, totalCost;
+    
+    cout << " How many people are in your party ? " << endl;
+    cin >> numOfPeople;
+    if( numOfPeople < 5 )
+    {
+        baseCharge = (numOfPeople * baseChargePerPerson);
+    }
+    else
+    {
+        baseCharge = (numOfPeople * baseChargePerPerson);
+        baseCharge = baseCharge -(baseCharge * discount);
+    }
+    
+    cout << " How many people will be needing rental equiment ? " << endl;
+    cin >> needEquip;
+    needEquip = (needEquip * daysSpent) * equipRental;
+    
+    totalCost = baseCharge + needEquip;
+    return totalCost;
 }
