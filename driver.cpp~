@@ -135,7 +135,7 @@ double spelunk()
         baseCharge = baseCharge -(baseCharge * discount);
     }
     
-    cout << " How many people will be needing rental equiment ? " << endlk
+    cout << " How many people will be needing rental equiment ? " << endl;
     cin >> needEquip;
     needEquip = (needEquip * daysSpent) * equipRental;
     
